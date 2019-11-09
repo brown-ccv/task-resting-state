@@ -15,15 +15,19 @@ const eyesTask = (option) => {
     'type': 'html_keyboard_response',
     'choices': jsPsych.NO_KEYS,
     'stimulus': stimulus,
-    'trial_duration': 13000,
+    'trial_duration': 11000,
     'on_load': async () => {
+      let start = Date.now()
       let code = eventCodes[option]
-      await sleep(1000)
+      let data = []
       pdSpotEncode(code.start)
       beep()
+      data.push({trial: option, code: code.start, rt: Date.now() - start })
       await sleep(10000)
-      pdSpotEncode(code.end)
+      pdSpotEncode(code.stop)
       beep()
+      data.push({trial: option, code: code.stop, rt: Date.now() - start })
+      jsPsych.data.write(data)
     }
   }
 }

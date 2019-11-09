@@ -1,4 +1,4 @@
-import { MTURK } from  '../../config/main'
+import { MTURK, AT_HOME } from  '../../config/main'
 import $ from 'jquery'
 
 // conditionally load electron and psiturk based on MTURK config variable
@@ -11,7 +11,7 @@ if (isElectron) {
 
 // Relies on styling in App.css, generate PD spot
 const photodiodeGhostBox = () => {
-	const class_ = (MTURK) ? 'invisible' : 'visible'
+	const class_ = (AT_HOME) ? 'invisible' : 'visible'
 
   const markup = `<div class="photodiode-box ${class_}" id="photodiode-box">
 									<span id="photodiode-spot" class="photodiode-spot"></span>
@@ -20,7 +20,7 @@ const photodiodeGhostBox = () => {
 }
 
 const pdSpotEncode = (taskCode) => {
-	if (!MTURK) {
+	if (!AT_HOME) {
 		const blinkTime = 20
 		for (var i = 0; i < taskCode; i++) {
 			$('#photodiode-spot').delay(blinkTime).hide(0).delay(blinkTime).show(0)

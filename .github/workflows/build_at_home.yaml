@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: 12.x
     - name: Set package version and name
-      uses: brown-ccv/gh-actions/get-package-info@fix-pkg-win
+      uses: brown-ccv/gh-actions/get-package-info@master
       id: package_info
 
     # install, test, build package
