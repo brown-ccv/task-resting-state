@@ -1,4 +1,4 @@
-name: CI Tests
+name: Build at home version (Windows)
 
 on:
   push:
@@ -41,6 +41,9 @@ jobs:
     # Build electron app package installers
     - name: package electron - windows
       run: npm run package:windows
+
+    - name: list installer
+      run: dir d:\a\task-resting-state\task-resting-state\dist\installers\
 
     # Upload installers to github action
     - name: upload win-installer-home

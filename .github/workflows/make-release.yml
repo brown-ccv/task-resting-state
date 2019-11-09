@@ -1,4 +1,4 @@
-name: Add App Installers to Release
+name: Add Installers to Release
 
 on:
   push:
