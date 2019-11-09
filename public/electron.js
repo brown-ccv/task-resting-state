@@ -167,7 +167,7 @@ ipc.on('data', (event, args) => {
   // we have a set up stream to write to, write to it!
   if (stream) {
     // write intermediate commas
-    if (args.trial_index > 0) {
+    if (args.trial_index > 1) {
       stream.write(',')
     }
 

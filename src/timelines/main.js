@@ -8,16 +8,16 @@ import experimentEnd from '../trials/experimentEnd'
 const primaryTimeline = [
         preamble,
         instructions(lang.instructions.moving_dot),
-        movingDot('left'),
-        movingDot('right'),
-        movingDot('up'),
-        movingDot('down'),
-        instructions(lang.instructions.blink),
+        // movingDot('left'),
+        // movingDot('right'),
+        // movingDot('up'),
+        // movingDot('down'),
+        // instructions(lang.instructions.blink),
         eyesTask('blink'),
-        instructions(lang.instructions.close_eyes),
-        eyesTask('close'),
-        instructions(lang.instructions.fixate),
-        fixation(90000),
+        // instructions(lang.instructions.close_eyes),
+        // eyesTask('close'),
+        // instructions(lang.instructions.fixate),
+        // fixation(90000),
         experimentEnd(1000)
         ]
 
