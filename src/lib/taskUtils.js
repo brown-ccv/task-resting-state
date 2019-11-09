@@ -1,6 +1,4 @@
 // utilities specific to this app/task
-
-import _ from 'lodash'
 import $ from 'jquery'
 
 

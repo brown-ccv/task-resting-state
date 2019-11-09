@@ -1,5 +1,3 @@
-import { jsPsych } from 'jspsych-react'
-import { baseStimulus } from '../lib/markup/stimuli'
 import { fixationHTML } from '../lib/markup/fixation'
 import { pdSpotEncode, photodiodeGhostBox } from '../lib/markup/photodiode'
 import { moveDot, sleep } from '../lib/taskUtils'
