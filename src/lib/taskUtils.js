@@ -7,11 +7,6 @@ const moveDot = (position) => {
   p.attr('class', `move-${position}`);
 }
 
-// const blink = () => {
-//   const p = $("#fixation-dot");
-//   p.attr('class', 'blink');
-// }
-//
 const beep = () => {
   const context = new AudioContext()
   const o = context.createOscillator()

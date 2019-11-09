@@ -10,7 +10,7 @@ const startCode = () => {
     stimulus: stimulus,
     trial_duration: 2000,
     on_load: () => {
-      pdSpotEncode(eventCodes.open_resting_task)
+      pdSpotEncode(eventCodes.open_task)
     }
   }
 }

@@ -1,4 +1,5 @@
 import { MTURK, AT_HOME } from  '../../config/main'
+import { eventCodes } from '../../config/trigger'
 import $ from 'jquery'
 
 // conditionally load electron and psiturk based on MTURK config variable
@@ -20,14 +21,32 @@ const photodiodeGhostBox = () => {
 }
 
 const pdSpotEncode = (taskCode) => {
-	if (!AT_HOME) {
-		const blinkTime = 20
-		for (var i = 0; i < taskCode; i++) {
-			$('#photodiode-spot').delay(blinkTime).hide(0).delay(blinkTime).show(0)
+  function pulse_for(ms, callback) {
+      $('.photodiode-spot').css({"background-color": "white"})
+      setTimeout(() => {
+        $('.photodiode-spot').css({"background-color": "black"})
+        callback()
+      }, ms)
+    }
+
+    function repeat_pulse_for(ms, i) {
+      if (i > 0) {
+        pulse_for(ms, () => {
+          setTimeout(() => {
+            repeat_pulse_for(ms, i-1)
+          }, ms)
+        })
+      }
+    }
+
+		if (!AT_HOME) {
+				const blinkTime = 40
+				let numBlinks = taskCode
+		    if (taskCode < eventCodes.open_task) numBlinks = 1;
+				repeat_pulse_for(blinkTime, numBlinks)
+				if ( ipcRenderer ) ipcRenderer.send('trigger', taskCode)
+			}
 		}
-		if ( ipcRenderer ) ipcRenderer.send('trigger', taskCode)
-	}
-}
 
 export {
 	photodiodeGhostBox,

@@ -9,7 +9,7 @@ const productId = '0483'
 // for other values to be re-used in other tasks.
 const eventCodes = {
 	'test_connect': 32,
-  'open_resting_task': 12,
+  'open_task': 12,
   'left': 1,
   'right': 2,
   'up': 3,
