@@ -11,10 +11,11 @@
   "private": true,
   "main": "public/electron.js",
   "homepage": ".",
-  "repository": "https://github.com/brown-ccv/resting-state-starter",
+  "repository": "https://github.com/brown-ccv/task-resting-state",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.10.2",
     "bootstrap": "^4.3.1",
+    "cross-env": "^6.0.3",
     "event-marker": "git+https://github.com/brown-ccv/event-marker.git#bump-version",
     "jquery": "^3.4.1",
     "jspsych-react": "^0.3",

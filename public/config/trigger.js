@@ -8,6 +8,7 @@ const productId = '0483'
 // by any other task, since we use it to uniquely identify this task. It's ok
 // for other values to be re-used in other tasks.
 const eventCodes = {
+	'test_connect': 32,
   'open_resting_task': 12,
   'left': 1,
   'right': 2,
