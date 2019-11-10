@@ -42,6 +42,7 @@ function createWindow () {
     mainWindow = new BrowserWindow({
       fullscreen: true,
       icon: './favicon.ico',
+      frame: false,
       webPreferences: {
         nodeIntegration: true,
         webSecurity: true

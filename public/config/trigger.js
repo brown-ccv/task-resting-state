@@ -1,7 +1,7 @@
 // Event trigger settings - used in both the react app (renderer) and the electron app (main)
 const manufacturer = 'Teensyduino'
 const vendorId = '16c0'
-const productId = '0483'
+const productId = process.env.EVENT_MARKER_ID
 
 // Values to send to the 'USB event marker' arduino when an event happens.
 // Make sure the 'open_resting_task' value doesn't conflict with any value sent
