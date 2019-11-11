@@ -1,30 +1,39 @@
-# Neuro Task Starter
+# Resting State Task
 
-This repo contains a simple neuro task to use as a starter for building [jspsych](https://www.jspsych.org/) tasks with React and Electron.
+This repo contains the resting-state task. It is a [jspsych](https://www.jspsych.org/) task built with React and Electron.
 
 ## Getting Started
 
 1. Clone this repo onto your computer
 ```
-git clone https://github.com/brown-ccv/neuro-task-starter.git project_name
+git clone https://github.com/brown-ccv/task-resting-state.git
 ```
-2. Change directory into the new folder
-```
-cd task-<TASK NAME>
-```
-3. Set the remote url to your tasks' repo (create a github repo if not yet created)
-```
-git remote set-url origin <PATH_TO_YOUR_REPO>
-```
-4. Install the dependencies (the -D flag installs the dev dependencies as well as the production ones)
+2. Install the dependencies (the -D flag installs the dev dependencies as well as the production ones)
 ```
 npm install -D
 ```
-5. Run the task in dev mode - this should launch an electron window with the task with the inspector open to the console and will hot-reload when changes are made to the app
+3. Run the task in dev mode - this should launch an electron window with the task with the inspector open to the console and will hot-reload when changes are made to the app
 ```
 npm run dev
+
+#to run the at home version of the app:
+npm run dev:home
 ```
-6. Check out the data - the data is saved throughout the task to the users's app directory.  This is logged at the beginning of the task wherever you ran `npm run dev`
+4. Check out the data - the data is saved throughout the task to the users's app directory.  This is logged at the beginning of the task wherever you ran `npm run dev`
+
+**NOTE**: When not running on MTurk, the task will look for a folder on the desktop called `resting-state-images/<patient_id>` with subfolders `neutral` and `provoking`.  If these are present, images will be loaded from there instead of the default images that are included in the app.
+
+## Contributing
+
+1. Clone the repo and create a new feature branch off `develop`.
+
+```shell
+git clone https://github.com/brown-ccv/task-resting-state.git
+git checkout -b your-feature-branch
+```
+
+2. Make your changes and commit using [commitizen](https://pypi.org/project/commitizen/)
+3. Submit a [pull request](https://help.github.com/en/articles/creating-a-pull-request) to the `develop` branch. Add @mcmcgrath13 or @fernandogelin as a reviewer.
 
 ## Project Organization
 
@@ -43,9 +52,6 @@ The `public` directory contains files that are used as assets in the built app. 
 ### `src/`
 
 This folder contains the code for the app, the vast majority of changes and code should go here.
-
-#### `__tests__`
-This folder contains the tests for the app. They can be run with `npm test`.
 
 #### `App.js`
 
@@ -105,6 +111,7 @@ You'll need to follow these steps (the path to the PsiTurk project should be a d
 - Move to the `psiturkit` directory: `cd psiturkit`
 - If it's the first time you're running the script:  
   `./psiturk-it -p <PATH_TO_NEW_PSITURK_PROJECT>`  
+
 - To update an existing PsiTurk project (the path to the PsiTurk project should already exist from the previous steps):  
   `./psiturk-it -u -p <PATH_TO_NEW_PSITURK_PROJECT>`
 
@@ -114,7 +121,7 @@ shell> psiturk #start psiturk
 psiturk> server on #start server
 psiturk> debug #debug mode
 ```
-
+> Note that GitHub Actions will build the psiturk version and upload to artifacts on push to develop and master.
 
 ## Best Practices
 
