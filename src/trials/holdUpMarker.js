@@ -10,6 +10,7 @@ const holdUpMarker = () => {
     type: 'html_button_response',
     stimulus: stimulus,
     choices: [lang.prompt.continue.button],
+    prompt: `<br><h3>${lang.instructions.align_photodiode}</h3>`,
     on_load: () => (eventMarkerMessage()
                       .then(s => document.getElementById('usb-alert')
                       .innerHTML = s )

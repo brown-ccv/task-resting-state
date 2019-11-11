@@ -25,7 +25,8 @@
     "moving_dot": "Try to fixate on and follow the dot on the screen as it moves. Try to relax.",
     "blink": "For this next section, start blinking when you hear a \"beep\", and stop when you hear another \"beep\".",
     "close_eyes": "For this next section, close your eyes when you hear a \"beep\", and open when you hear a \"beep\" again. ",
-    "fixate": "Please sit quietly for the next 1.5 minute. For the remaining minute and a half, fixate on the dot in the middle of the screen and relax. Try to relax."
+    "fixate": "Please sit quietly for the next 1.5 minute. For the remaining minute and a half, fixate on the dot in the middle of the screen and relax. Try to relax.",
+    "align_photodiode": "Make sure the photodiode is aligned and the EEG recording has begun before continuing?"
   },
   "blink": "Blink.",
   "close": "Close your eyes."
