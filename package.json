@@ -17,8 +17,7 @@
     "bootstrap": "^4.3.1",
     "cross-env": "^6.0.3",
     "electron-devtools-installer": "^2.2.4",
-    "electron-log": "^3.0.atom .
-    9",
+    "electron-log": "^3.0.9",
     "electron-squirrel-startup": "^1.0.0",
     "event-marker": "git+https://github.com/brown-ccv/event-marker.git#bump-version",
     "jquery": "^3.4.1",
@@ -71,6 +70,7 @@
     "chai": "^4.2.0",
     "concurrently": "^4.1.2",
     "electron": "6.1.1",
+    "electron-builder": "^21.2.0",
     "electron-packager": "^14.0.6",
     "electron-rebuild": "^1.8.6",
     "eslint": "*",
@@ -89,7 +89,6 @@
   },
   "optionalDependencies": {
     "electron-installer-debian": "^2.0.0",
-    "electron-installer-windows": "^2.0.0",
-    "electron-installer-dmg": "^3.0.0"
+    "electron-installer-windows": "^2.0.0"
   }
 }
