@@ -7,6 +7,8 @@ const productId = '0487'
 // Make sure the 'open_resting_task' value doesn't conflict with any value sent
 // by any other task, since we use it to uniquely identify this task. It's ok
 // for other values to be re-used in other tasks.
+
+// NOTE - these must match the codes in src/config/trigger.js
 const eventCodes = {
 	'test_connect': 32,
   'open_task': 12,

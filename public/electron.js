@@ -16,6 +16,10 @@ const { eventCodes, manufacturer, vendorId, productId } = require('./config/trig
 const { isPort, getPort, sendToPort } = require('event-marker')
 log.info(AT_HOME)
 
+// Override product ID if environment variable set
+const activeProductId = process.env.EVENT_MARKER_PRODUCT_ID || productId
+log.info("Active product ID", activeProductId)
+
 // Data Saving
 const { dataDir } = require('./config/saveData')
 
@@ -80,7 +84,7 @@ let portAvailable
 let SKIP_SENDING_DEV = false
 
 const setUpPort = async () => {
-  p = await getPort(vendorId, productId)
+  p = await getPort(vendorId, activeProductId)
   if (p) {
     triggerPort = p
     portAvailable = true
