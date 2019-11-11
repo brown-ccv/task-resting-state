@@ -70,7 +70,7 @@ jobs:
       if: startsWith(matrix.os, 'mac')
       with:
         name: mac-installer
-        path: dist/installer
+        path: dist/installers/${{ steps.package_info.outputs.package_name }}-${{ steps.package_info.outputs.package_version }}.dmg
     - name: upload linux-installer
       uses: actions/upload-artifact@master
       if: startsWith(matrix.os, 'ubuntu')
