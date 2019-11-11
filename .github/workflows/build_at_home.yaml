@@ -42,9 +42,6 @@ jobs:
     - name: package electron - windows
       run: npm run package:windows
 
-    - name: list installer
-      run: dir d:\a\task-resting-state\task-resting-state\dist\installers\
-
     # Upload installers to github action
     - name: upload win-installer-home
       uses: actions/upload-artifact@master
