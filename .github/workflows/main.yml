@@ -50,10 +50,13 @@ jobs:
       run: npm run package:linux
     - name: package electron - mac
       if: startsWith(matrix.os, 'mac')
-      run: |
-        npm run package:mac
-        mv ./dist/${{ steps.package_info.outputs.package_name }}-darwin-x64/${{ steps.package_info.outputs.package_name }}.app ./dist/${{ steps.package_info.outputs.package_name }}-${{ steps.package_info.outputs.package_version }}.app
-
+      run: npm run package:mac
+    - name: npm rebuild
+      if: startsWith(matrix.os, 'mac')
+      run: npm rebuild
+    - name: Mac installer
+      if: startsWith(matrix.os, 'mac')
+      run: npm run installer:mac
 
     # Upload installers to github action
     - name: upload win-installer
@@ -67,7 +70,7 @@ jobs:
       if: startsWith(matrix.os, 'mac')
       with:
         name: mac-installer
-        path: dist/${{ steps.package_info.outputs.package_name }}-${{ steps.package_info.outputs.package_version }}.app
+        path: dist/installer
     - name: upload linux-installer
       uses: actions/upload-artifact@master
       if: startsWith(matrix.os, 'ubuntu')
