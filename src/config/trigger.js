@@ -1,8 +1,6 @@
 // Event trigger settings - used in both the react app (renderer) and the electron app (main)
-const manufacturer = 'Teensyduino'
-const vendorId = '16c0'
-const productId = '0483'
 
+// NOTE - these must match the codes in public/config/trigger.js
 const eventCodes = {
 	'test_connect': 32,
   'open_task': 12,
@@ -27,8 +25,5 @@ const eventCodes = {
 
 // this is module.exports isntead of just exports as it is also imported into the electron app
 module.exports = {
-	manufacturer,
-	vendorId,
-	productId,
 	eventCodes
 }
