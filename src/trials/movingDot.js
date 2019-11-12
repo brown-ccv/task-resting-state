@@ -1,6 +1,7 @@
 import { fixationHTML } from '../lib/markup/fixation'
 import { pdSpotEncode, photodiodeGhostBox } from '../lib/markup/photodiode'
 import { moveDot, sleep } from '../lib/taskUtils'
+import { removeCursor } from '../lib/utils'
 import { eventCodes } from '../config/trigger'
 import $ from 'jquery'
 
@@ -12,7 +13,6 @@ const moveBlock = async(duration, position, start, eventCodes, data) => {
   moveDot(position)
   pdSpotEncode(code)
   data.push({code: code, rt: rt(), timestamp: Date.now()})
-  console.log(position, duration, rt())
 }
 
 const movingDot = (direction) => {
@@ -38,6 +38,7 @@ const movingDot = (direction) => {
     'type': 'call_function',
     'async': true,
      func: (done) => {
+       removeCursor('experiment')
 
       const start = Date.now()
       let data = []
@@ -46,9 +47,7 @@ const movingDot = (direction) => {
       document.getElementById('jspsych-content').innerHTML = stimulus
       let container = $(".jspsych-content-wrapper");
       container.attr('class', 'fixation-container');
-      console.log(direction, Date.now() - start)
       moveThree(direction, data, start, eventCodes)
-      console.log(data)
       let timeOut = (direction === 'down') ? 17000 : 15000
       setTimeout(
          () => done({direction: direction, code: eventCodes[direction], start: start, data: data}),

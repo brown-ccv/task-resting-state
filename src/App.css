@@ -117,6 +117,7 @@ html {
 .jspsych-content {
   color: white !important;
 }
+
 .jspsych-content-wrapper {
   display: flex;
   justify-content: center;
@@ -126,10 +127,13 @@ html {
 
   /* NEW STUFF 2018, NOT VANILLA JSPSYCH */
   background-color: black;
-  cursor: none;
 }
 #patient-id-please, #jspsych-html-keyboard-response-stimulus, #jspsych-html-button-response-stimulus, p {
   color: white;
+}
+
+.nocursor {
+  cursor: none;
 }
 
 .instructions-text {
