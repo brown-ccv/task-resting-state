@@ -31,7 +31,7 @@ const movingDot = (direction) => {
     await moveBlock(2000, 'center', start, eventCodes, data)
     await moveBlock(2000, position, start, eventCodes, data)
     await moveBlock(2000, 'center', start, eventCodes, data)
-
+    console.log(data)
   }
 
   return {
@@ -48,7 +48,7 @@ const movingDot = (direction) => {
       let container = $(".jspsych-content-wrapper");
       container.attr('class', 'fixation-container');
       moveThree(direction, data, start, eventCodes)
-      let timeOut = (direction === 'down') ? 17000 : 15000
+      let timeOut = (direction === 'down') ? 17000 : 15100
       setTimeout(
          () => done({direction: direction, code: eventCodes[direction], start: start, data: data}),
          timeOut)
