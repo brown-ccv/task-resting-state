@@ -13,12 +13,13 @@ const log = require('electron-log');
 const AT_HOME = (process.env.REACT_APP_AT_HOME === 'true')
 // Event Trigger
 const { eventCodes, manufacturer, vendorId, productId } = require('./config/trigger')
-const { isPort, getPort, sendToPort } = require('event-marker')
-log.info(AT_HOME)
 
 // Override product ID if environment variable set
 const activeProductId = process.env.EVENT_MARKER_PRODUCT_ID || productId
 log.info("Active product ID", activeProductId)
+
+const { isPort, getPort, sendToPort } = require('event-marker')
+log.info(AT_HOME)
 
 // Data Saving
 const { dataDir } = require('./config/saveData')
@@ -39,7 +40,6 @@ function createWindow () {
     mainWindow = new BrowserWindow({
       width: 1500,
       height: 900,
-      icon: './favicon.ico',
       webPreferences: {
         nodeIntegration: true,
         webSecurity: false
@@ -48,8 +48,7 @@ function createWindow () {
   } else {
     mainWindow = new BrowserWindow({
       fullscreen: true,
-      icon: './favicon.ico',
-      frame: false,
+      frame: AT_HOME,
       webPreferences: {
         nodeIntegration: true,
         webSecurity: true
@@ -157,6 +156,7 @@ let fileName = ''
 let filePath = ''
 let patientID = ''
 let images = []
+let startTrial = -1
 
 // listener for new data
 ipc.on('data', (event, args) => {
@@ -167,6 +167,7 @@ ipc.on('data', (event, args) => {
     patientID = args.patient_id
     fileName = `pid_${patientID}_${Date.now()}.json`
     filePath = path.resolve(dir, fileName)
+    startTrial = args.trial_index
     log.warn(filePath)
     stream = fs.createWriteStream(filePath, {flags:'ax+'});
     stream.write('[')
@@ -175,7 +176,7 @@ ipc.on('data', (event, args) => {
   // we have a set up stream to write to, write to it!
   if (stream) {
     // write intermediate commas
-    if (args.trial_index > 1) {
+    if (args.trial_index > startTrial) {
       stream.write(',')
     }
 
@@ -187,25 +188,9 @@ ipc.on('data', (event, args) => {
   }
 })
 
-// EXPERIMENT END
+
+// EXPERMENT END
 ipc.on('end', (event, args) => {
-  // finish writing file
-  stream.write(']')
-  stream.end()
-  stream = false
-
-  // copy file to config location
-  const desktop = app.getPath('desktop')
-  const name = app.getName()
-  const today = new Date(Date.now())
-  const date = today.toISOString().slice(0,10)
-  const copyPath = path.join(desktop, dataDir, `${patientID}`, date, name)
-  fs.mkdir(copyPath, { recursive: true }, (err) => {
-    log.error(err)
-    fs.copyFileSync(filePath, path.join(copyPath, fileName))
-
-  })
-
   // quit app
   app.quit()
 })
@@ -245,7 +230,6 @@ app.on('ready', () => {
     .then(() => handleEventSend(eventCodes.test_connect))
   }
 })
-
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On macOS it is common for applications and their menu bar
@@ -261,3 +245,26 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+// Before quitting, finish writing file and copy it over
+app.on('will-quit', () => {
+  if (fileName) {
+    // finish writing file
+    stream.write(']')
+    stream.end()
+    stream = false
+
+    // copy file to config location
+    const desktop = app.getPath('desktop')
+    const name = app.getName()
+    const today = new Date(Date.now())
+    const date = today.toISOString().slice(0,10)
+    const copyPath = path.join(desktop, dataDir, `${patientID}`, date, name)
+    fs.mkdir(copyPath, { recursive: true }, (err) => {
+      log.error(err)
+      fs.copyFileSync(filePath, path.join(copyPath, fileName))
+
+    })
+  }
+})
