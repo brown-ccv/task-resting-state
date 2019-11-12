@@ -49,6 +49,16 @@ The `package-lock.json` contains metadata about the package installation. It sho
 
 The `public` directory contains files that are used as assets in the built app. The `favicon.ico` is the small icon you can see in the browser tab (on Chrome) - it is set to Brown's logo in the project. The `index.html` contains the shell of your website - the name displayed on the tab can be changed here, otherwise it shouldn't need to be edited. The scripts included in the file are for `psiturk` as are the files in the `lib/` directory.
 
+#### `electron.js`
+
+This file contains all of the code relating to the electron app. This includes the event-marker, throwing errors via dialog windows, saving data, and reading files.
+
+#### `config/`
+
+The `config` directory contains the config files needed for the electron app.  This includes the event-marker details and event codes.
+
+Note: the productId can be overwritten by the environment variable EVENT_MARKER_PRODUCT_ID
+
 ### `src/`
 
 This folder contains the code for the app, the vast majority of changes and code should go here.
