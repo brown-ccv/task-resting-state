@@ -11,13 +11,19 @@ const moveBlock = async(duration, position, start, eventCodes, data) => {
   await sleep(duration)
   moveDot(position)
   pdSpotEncode(code)
-  data.push({code: code, rt: rt()})
+  data.push({code: code, rt: rt(), timestamp: Date.now()})
+  console.log(position, duration, rt())
 }
 
 const movingDot = (direction) => {
   let stimulus = fixationHTML + photodiodeGhostBox()
 
   const moveThree = async(position, data, start, eventCodes) => {
+
+    if (position === 'left') {
+      data.push({code: eventCodes.center, rt: 0, timestamp: Date.now()})
+      pdSpotEncode('center')
+    }
 
     await moveBlock(5000, position, start, eventCodes, data)
     await moveBlock(2000, 'center', start, eventCodes, data)
@@ -31,7 +37,7 @@ const movingDot = (direction) => {
   return {
     'type': 'call_function',
     'async': true,
-    func: (done) => {
+     func: (done) => {
 
       const start = Date.now()
       let data = []
@@ -40,12 +46,13 @@ const movingDot = (direction) => {
       document.getElementById('jspsych-content').innerHTML = stimulus
       let container = $(".jspsych-content-wrapper");
       container.attr('class', 'fixation-container');
-      console.log(direction)
+      console.log(direction, Date.now() - start)
       moveThree(direction, data, start, eventCodes)
       console.log(data)
+      let timeOut = (direction === 'down') ? 17000 : 15000
       setTimeout(
          () => done({direction: direction, code: eventCodes[direction], start: start, data: data}),
-         15000)
+         timeOut)
       container.attr('class', 'jspsych-content-wrapper')
     }
   }
