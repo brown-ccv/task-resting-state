@@ -1,7 +1,19 @@
-import _ from 'lodash'
 import { jsPsych } from 'jspsych-react'
-import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
-registerRequireContextHook();
+
+
+const removeCursor = (elementId) => {
+  let element = document.getElementById(elementId);
+  element.classList.add("nocursor");
+}
+
+const addCursor = (elementId) => {
+  let element = document.getElementById(elementId);
+  element.classList.remove("nocursor");
+}
+
+const sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 // add a random number between 0 and offset to the base number
 const jitter = (base, offset) => (
@@ -49,13 +61,6 @@ const startKeypressListener = () => {
   return keyboardListener
 }
 
-// import images
-const importAll = (r) => {
-  return r.keys().map(r);
-}
-
-const images = importAll(global.__requireContext(__dirname, '../assets/images', false, /\.(png|jpe?g|svg)$/));
-
 const getTurkUniqueId = () => {
   const turkInfo = jsPsych.turk.turkInfo()
   const uniqueId = `${turkInfo.workerId}:${turkInfo.assignmentId}`
@@ -75,8 +80,10 @@ export {
   deepCopy,
   formatDollars,
   generateWaitSet,
-  images,
   startKeypressListener,
   getUserId,
-  getTurkUniqueId
+  getTurkUniqueId,
+  sleep,
+  removeCursor,
+  addCursor
 }

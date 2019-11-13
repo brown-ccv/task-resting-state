@@ -5,6 +5,11 @@ p, li {
   text-align: center;
 }
 
+html {
+  background-color: black;
+  color: white;
+}
+
 .photodiode-box {
   position: fixed;
   bottom: 3px;
@@ -24,32 +29,149 @@ p, li {
   position: absolute;
 }
 
-.main-prompt, .beads_container {
-  height: 100vh;
+.main-prompt {
+  height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center !important;
 }
-
-.main-prompt {
-  margin-top: -10%;
-  margin-bottom: -5%;
-}
-
-#fixation-dot {
-  background-color: black;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
+.main-prompt h1, .main-prompt p {
+  color: white !important;
 }
 
 .jspsych-btn {
+  margin-top: -4rem;
   padding: 0.5rem 1rem;
   font-weight: bold;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px #efefef;
   background-color: #d3d3d3;
   margin: 1rem;
-  width: 10rem !important;
+}
+
+
+#empty-container {
+  margin: auto;
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+#fixation-dot {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}
+
+#fixation-container {
+  padding: 4rem;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dot-container {
+  width: 1300px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#stimulus-container {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photodiode-box {
+  /* width: 150px;
+  height: 150px; */
+  background-color: white;
+  position: fixed;
+  bottom: 3px;
+  right: 3px;
+  display: flex;
+}
+
+.photodiode-spot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: auto;
+  outline: 3px solid rgb(80,80,80);
+  /* position: absolute; */
+}
+.photodiode-spot.lit {
+  background-color: white;
+}
+.photodiode-spot.unlit {
+  background-color: black;
+}
+
+.jspsych-content {
+  color: white !important;
+}
+
+.jspsych-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  /* NEW STUFF 2018, NOT VANILLA JSPSYCH */
+  background-color: black;
+}
+#patient-id-please, #jspsych-html-keyboard-response-stimulus, #jspsych-html-button-response-stimulus, p {
+  color: white;
+}
+
+.nocursor {
+  cursor: none;
+}
+
+.instructions-text {
+  color: white;
+  width: 500px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Actions */
+/* Move left  */
+
+.move-center {
+  transform: translate()
+}
+.move-left {
+  /* transition: all 500ms ease-in-out; */
+  justify-content: flex-start !important;
+}
+.move-right {
+  /* transition: all 500ms ease-in-out; */
+  justify-content: flex-end !important;
+}
+.move-up {
+  /* transition: all 500ms ease-in-out; */
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+.move-down {
+  /* transition: all 500ms ease-in-out; */
+  align-items: flex-end !important;
+  justify-content: center !important;
+}
+.move-center {
+  /* transition: all 500ms ease-in-out; */
+  align-items: center !important;
+  justify-content: center !important;
 }
