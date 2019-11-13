@@ -1,10 +1,10 @@
 # Resting State Task
-
-This repo contains the Resting State Task. It is a [jspsych](https://www.jspsych.org/) task built with React and Electron. This task uses the [Neuro Task Starter](https://www.github.com/brown-ccv/neuro-task-starter).
-
 <p float="left">
   <img src="resting-state.svg" width="200" />
 </p>
+
+This repo contains the Resting State Task. It is a [jspsych](https://www.jspsych.org/) task built with React and Electron. This task uses the [Neuro Task Starter](https://www.github.com/brown-ccv/neuro-task-starter).
+
 
 ## Getting Started
 
