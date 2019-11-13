@@ -3,6 +3,9 @@
   <img src="resting-state.svg" width="200" />
 </p>
 
+[![Actions Status](https://github.com/brown-ccv/task-resting-state/workflows/Test%2C%20Build%2C%20and%20Package/badge.svg)](https://github.com/brown-ccv/task-resting-state/actions)
+[![Actions Status](https://github.com/brown-ccv/task-resting-state/workflows/Build%20at%20home%20version%20%28Windows%29/badge.svg)](https://github.com/brown-ccv/task-resting-state/actions)  
+
 This repo contains the Resting State Task. It is a [jspsych](https://www.jspsych.org/) task built with React and Electron. This task uses the [Neuro Task Starter](https://www.github.com/brown-ccv/neuro-task-starter).
 
 
