@@ -17,7 +17,7 @@ const primaryTimeline = [
         instructions(lang.instructions.close_eyes),
         eyesTask('close'),
         instructions(lang.instructions.fixate),
-        fixation(90000),
+        fixation(91000),
         experimentEnd(1000)
         ]
 
