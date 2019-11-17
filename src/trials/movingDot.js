@@ -22,7 +22,7 @@ const movingDot = (direction) => {
 
     if (position === 'left') {
       data.push({code: eventCodes.center, rt: 0, timestamp: Date.now()})
-      pdSpotEncode('center')
+      pdSpotEncode(eventCodes['center'])
     }
 
     await moveBlock(5000, position, start, eventCodes, data)
