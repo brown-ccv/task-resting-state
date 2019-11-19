@@ -22,7 +22,7 @@
     "not_found": "Note: no USB event marker found."
   },
   "instructions": {
-    "moving_dot": "Try to relax and follow the dot on the screen as it moves.",
+    "moving_dot": "Try to relax and follow the dot on the screen as it moves. Try to relax your shoulders, don't clench your jaw, and try not to move. Movements affect the quality of the EEG recordings.",
     "blink": "For this next section, start blinking when you hear a \"beep\", and stop when you hear another \"beep\".",
     "close_eyes": "For this next section, close your eyes when you hear a \"beep\", and open when you hear another \"beep\". ",
     "fixate": "For the remaining minute and a half, fixate on the dot in the middle of the screen and try to relax.",
