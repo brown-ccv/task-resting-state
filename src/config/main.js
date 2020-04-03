@@ -12,6 +12,12 @@ const AT_HOME = (process.env.REACT_APP_AT_HOME === 'true')
 // is this mechanical turk?
 const MTURK = (!jsPsych.turk.turkInfo().outsideTurk)
 
+// audio codes
+const audioCodes = {
+	frequency: 5000,
+	type: 'sine'
+}
+
 // get language file
 const lang = require('../language/en_us.json')
 if (process.env.MTURK) { // if this is mturk, merge in the mturk specific language
@@ -24,12 +30,11 @@ const importAll = (r) => {
 }
 
 const audio = importAll(requireContext('../assets/audio', false, /\.(m4a|mp3)$/))
-const xcorrAudio = _.filter(audio, (o) => o.includes(`xcorr_audio`))[0]
 
 export {
 	lang,
 	eventCodes,
 	MTURK,
 	AT_HOME,
-  xcorrAudio
+  	audioCodes
 }
