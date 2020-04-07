@@ -11,6 +11,12 @@ const AT_HOME = (process.env.REACT_APP_AT_HOME === 'true')
 // is this mechanical turk?
 const MTURK = (!jsPsych.turk.turkInfo().outsideTurk)
 
+// audio codes
+const audioCodes = {
+	frequency: 100*(eventCodes.open_task - 9),
+	type: 'sine'
+}
+
 // get language file
 const lang = require('../language/en_us.json')
 if (process.env.MTURK) { // if this is mturk, merge in the mturk specific language
@@ -18,9 +24,11 @@ if (process.env.MTURK) { // if this is mturk, merge in the mturk specific langua
 	_.merge(lang, mlang)
 }
 
+
 export {
 	lang,
 	eventCodes,
 	MTURK,
-	AT_HOME
+	AT_HOME,
+  	audioCodes
 }

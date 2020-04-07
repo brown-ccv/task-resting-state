@@ -2,12 +2,6 @@ import { lang } from '../config/main'
 import { baseStimulus } from '../lib/markup/stimuli'
 
 
-const adjustVolume =  baseStimulus(`
-    <div class='instructions'>
-    <h1>${lang.instructions.adjust_volume}</h1>
-    </div>
-    `, true)
-
 const movingDotInstruction = baseStimulus(`
   <div class='instructions'>
   <h1>${lang.instructions.moving_dot}</h1>
@@ -16,7 +10,7 @@ const movingDotInstruction = baseStimulus(`
 
 const initialInstructions = {
   type: 'instructions',
-  pages: [adjustVolume, movingDotInstruction],
+  pages: [movingDotInstruction],
   show_clickable_nav: true
 }
 
