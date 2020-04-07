@@ -11,7 +11,7 @@ const preamble = {
   type: 'html_keyboard_response',
   stimulus: '',
   timeline: (AT_HOME) ?
-    [experimentStart(), userId()] :
+    [experimentStart(), userId(), adjustVolume()] :
     [experimentStart(), userId(), adjustVolume(), holdUpMarker(), startCode()]
 }
 
