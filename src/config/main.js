@@ -5,7 +5,6 @@
 import { jsPsych } from 'jspsych-react'
 import _ from 'lodash'
 import { eventCodes } from './trigger'
-import requireContext from 'require-context.macro'
 
 const AT_HOME = (process.env.REACT_APP_AT_HOME === 'true')
 
@@ -25,9 +24,6 @@ if (process.env.MTURK) { // if this is mturk, merge in the mturk specific langua
 	_.merge(lang, mlang)
 }
 
-const importAll = (r) => {
-  return r.keys().map(r);
-}
 
 export {
 	lang,
