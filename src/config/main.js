@@ -14,7 +14,7 @@ const MTURK = (!jsPsych.turk.turkInfo().outsideTurk)
 
 // audio codes
 const audioCodes = {
-	frequency: 5000,
+	frequency: 100*(eventCodes.open_task - 9),
 	type: 'sine'
 }
 
