@@ -27,7 +27,7 @@ const camera = () => {
   <video id="camera" width="640" height="480" autoplay></video>
   </div>
   `
-  let stimulus = baseStimulus(markup, true) +
+  let stimulus = baseStimulus(markup, false) +
                  photodiodeGhostBox()
 
   return {

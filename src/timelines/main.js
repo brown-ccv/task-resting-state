@@ -1,16 +1,13 @@
 import { lang } from '../config/main'
 import preamble from './preamble'
-import { instructions, initialInstructions } from '../trials/instructions'
+import { instructions } from '../trials/instructions'
 import movingDot from '../trials/movingDot'
 import eyesTask from  '../trials/eyesTask'
 import fixation from '../trials/fixation'
 import experimentEnd from '../trials/experimentEnd'
-import camera from '../trials/camera'
 
 const primaryTimeline = [
         preamble,
-        initialInstructions(),
-        camera(),
         movingDot('left'),
         movingDot('right'),
         movingDot('up'),
