@@ -12,13 +12,13 @@ const log = require('electron-log');
 
 const AT_HOME = (process.env.REACT_APP_AT_HOME === 'true')
 // Event Trigger
-const { eventCodes, manufacturer, vendorId, productId } = require('./config/trigger')
+const { eventCodes, comName } = require('./config/trigger')
 
 // Override product ID if environment variable set
-const activeProductId = process.env.EVENT_MARKER_PRODUCT_ID || productId
-log.info("Active product ID", activeProductId)
+const activeComName = process.env.COMNAME || comName
+log.info("Active product ID", activeComName)
 
-const { isPort, getPort, sendToPort } = require('event-marker')
+const { getPort, sendToPort } = require('event-marker')
 log.info(AT_HOME)
 
 // Data Saving
