@@ -27,7 +27,8 @@
     "close_eyes": "For this next section, close your eyes when you hear a \"beep\", and open when you hear another \"beep\". ",
     "fixate": "For the remaining minute and a half, fixate on the dot in the middle of the screen and try to relax.",
     "align_photodiode": "Make sure the photodiode is aligned and the EEG recording has begun before continuing.",
-    "adjust_volume": "Set tablet volume to 50/100."
+    "adjust_volume": "Set tablet volume to 50/100.",
+    "camera": "Make sure the camera is pointing to you and your face is within the camera area."
   },
   "blink": "Blink.",
   "close": "Close your eyes."
