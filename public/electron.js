@@ -150,6 +150,15 @@ ipc.on('trigger', (event, args) => {
   }
 })
 
+// Get Git Commit SHA and Branch
+
+const execa = require('execa');
+
+const rev = execa.commandSync('git rev-parse HEAD').stdout
+const branch = execa.commandSync('git branch --show-current').stdout  
+var git = {rev, branch}
+
+
 // INCREMENTAL FILE SAVING
 let stream = false
 let fileName = ''
@@ -181,7 +190,7 @@ ipc.on('data', (event, args) => {
     }
 
     //write the data
-    stream.write(JSON.stringify(args))
+    stream.write(JSON.stringify({...args, git}))
 
     // Copy provocation images to patient's data folder
     if (args.trial_type === 'image_keyboard_response') images.push(args.stimulus.slice(7))

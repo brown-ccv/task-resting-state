@@ -28,8 +28,6 @@ jobs:
       run: npm install
     - name: npm build
       run: npm run build:win:home
-    - name: npm test
-      run: npm test
       env:
         CI: true
         REACT_APP_AT_HOME: true
