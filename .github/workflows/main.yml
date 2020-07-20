@@ -5,6 +5,7 @@ on:
     paths:
       - 'src/**'
       - '.github/workflows/main.yml'
+      - 'public/**'
 
 jobs:
   build:
@@ -32,10 +33,7 @@ jobs:
       run: npm install
     - name: npm build
       run: npm run build
-    - name: npm test
-      run: npm test
-      env:
-        CI: true
+
 
     # Build electron app package installers
     - name: package electron - windows
