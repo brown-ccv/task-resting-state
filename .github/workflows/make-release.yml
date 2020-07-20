@@ -29,6 +29,8 @@ jobs:
     # install, test, build package
     - name: npm install
       run: npm install
+    - name: get git revision and branch
+      run: node version.js
     - name: npm build - linux mac
       if: startsWith(matrix.os, 'mac') || startsWith(matrix.os, 'ubuntu')
       run: npm run build
@@ -37,8 +39,6 @@ jobs:
       run: npm run build:win:clinic
     - name: npm test
       run: npm test
-      env:
-        CI: true
 
     # Build electron app package installers
     - name: package electron - windows
@@ -92,9 +92,6 @@ jobs:
         REACT_APP_AT_HOME: true
     - name: npm test - win home
       run: npm test
-      env:
-        CI: true
-        REACT_APP_AT_HOME: true
     - name: package electron - windows home
       if: startsWith(matrix.os, 'windows')
       run: npm run package:windows
