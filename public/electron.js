@@ -150,14 +150,8 @@ ipc.on('trigger', (event, args) => {
   }
 })
 
-// Get Git Commit SHA and Branch
-
-const execa = require('execa');
-
-const rev = execa.commandSync('git rev-parse HEAD').stdout
-const branch = execa.commandSync('git branch --show-current').stdout  
-var git = {rev, branch}
-
+// Read version file (git sha and branch)
+var git = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'config/version.json')));
 
 // INCREMENTAL FILE SAVING
 let stream = false
