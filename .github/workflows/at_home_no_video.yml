@@ -1,4 +1,4 @@
-name: Build at home version (Windows)
+name: Build at home version (Windows / No Video)
 
 on:
   pull_request:
