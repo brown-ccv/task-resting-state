@@ -7,6 +7,7 @@ import _ from 'lodash'
 import { eventCodes } from './trigger'
 
 const AT_HOME = (process.env.REACT_APP_AT_HOME === 'true')
+const VIDEO =  (process.env.REACT_APP_VIDEO === 'true')
 
 // is this mechanical turk?
 const MTURK = (!jsPsych.turk.turkInfo().outsideTurk)
@@ -32,5 +33,6 @@ export {
 	MTURK,
 	AT_HOME,
 	audioCodes,
-	taskName
+	taskName,
+	VIDEO
 }
