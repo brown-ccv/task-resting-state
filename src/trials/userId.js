@@ -18,7 +18,7 @@ const userId = () => {
   else {
     const ipcRenderer = window.require('electron').ipcRenderer;
     const envPatientId = ipcRenderer.sendSync('syncPatientId')
-    console.log(envPatientId, 'sync ipc')
+
     return {
       type: 'survey_text',
       questions: [{ prompt: baseStimulus(`<h1>${lang.userid.set}</h1>`, true), value: envPatientId }],
