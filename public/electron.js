@@ -153,6 +153,11 @@ ipc.on('trigger', (event, args) => {
 // Read version file (git sha and branch)
 var git = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'config/version.json')));
 
+// Get Patient Id from environment
+ipc.on('syncPatientId', (event) => {
+  event.returnValue = process.env.REACT_APP_PATIENT_ID
+})
+
 // INCREMENTAL FILE SAVING
 let stream = false
 let fileName = ''
