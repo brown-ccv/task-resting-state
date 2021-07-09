@@ -1,3 +1,6 @@
+# ⚠️ Archived
+Moved to https://github.com/neuromotion/resting-state
+
 # Resting State Task
 <p float="left">
   <img src="resting-state.svg" width="200" />
